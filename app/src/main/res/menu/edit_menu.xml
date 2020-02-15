@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <item
+        android:id="@+id/memo_delete"
+        android:icon="@android:drawable/ic_delete"
+        android:title="@string/memo_delete" />
+
+    <item
+        android:id="@+id/memo_mod"
+        android:icon="@android:drawable/ic_menu_more"
+        android:title="@string/memo_mod" />
+
+</menu>

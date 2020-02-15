@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <item
+        android:id="@+id/img_camera"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:title="@string/memo_delete" />
+
+    <item
+        android:id="@+id/img_storage"
+        android:icon="@android:drawable/ic_menu_report_image"
+        android:title="@string/memo_mod" />
+
+    <item
+        android:id="@+id/img_web"
+        android:icon="@android:drawable/ic_media_next"
+        android:title="@string/memo_mod" />
+
+</menu>
