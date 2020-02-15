@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SimpleMemoJ</string>
+    <string name="no_memo">No Memos</string>
+    <string name="sample_memo_title">Sample Memo Title</string>
+    <string name="sample_memo_content">Sample Memo Content</string>
+    <string name="memo_title">Title</string>
+    <string name="memo_content">Content</string>
+    <string name="memo_delete">Delete</string>
+    <string name="memo_mod">Modify</string>
+    <string name="img_camera">Camera</string>
+    <string name="img_storage">Gallery</string>
+    <string name="img_web">URL</string>
+    <string name="REQUEST_PERMISSION_ACCEPTED">Permission granted</string>
+    <string name="REQUEST_PERMISSION_DENIED">You must be authorized to use this feature.</string>
+    <string name="empty"/>
+</resources>

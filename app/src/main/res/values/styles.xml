@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Toolbar Theme style -->
+    <style name="AppTheme.ActionBar" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Drop-Up Overflow menu style -->
+    <style name="DropUpListView" parent="Widget.AppCompat.ListView.DropDown">
+        <item name="android:overlapAnchor">false</item>
+    </style>
+
+</resources>
