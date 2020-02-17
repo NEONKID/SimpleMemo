@@ -10,6 +10,8 @@
     <string name="img_camera">Camera</string>
     <string name="img_storage">Gallery</string>
     <string name="img_web">URL</string>
+    <string name="img_web_input">Input URL</string>
+    <string name="REQUEST_PERMISSION_NOTIFICATIONS">Permissions are required to use the feature</string>
     <string name="REQUEST_PERMISSION_ACCEPTED">Permission granted</string>
     <string name="REQUEST_PERMISSION_DENIED">You must be authorized to use this feature.</string>
     <string name="empty"/>
