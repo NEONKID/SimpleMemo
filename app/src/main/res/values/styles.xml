@@ -13,9 +13,9 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <!-- Drop-Up Overflow menu style -->
-    <style name="DropUpListView" parent="Widget.AppCompat.ListView.DropDown">
-        <item name="android:overlapAnchor">false</item>
+    <!-- Full screen theme -->
+    <style name="AppTheme.FullScreen" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
     </style>
 
 </resources>
