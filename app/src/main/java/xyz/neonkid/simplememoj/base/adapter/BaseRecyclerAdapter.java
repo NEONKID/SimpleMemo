@@ -10,15 +10,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import xyz.neonkid.simplememoj.base.adapter.view.BaseRecyclerView;
+import xyz.neonkid.simplememoj.main.component.OnListItemClickedInterface;
 
 public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRecyclerView> {
     private Context context;
-
     private List<T> itemList;
+    private OnListItemClickedInterface mListener;
 
-    public BaseRecyclerAdapter(Context context) {
+    public BaseRecyclerAdapter(Context context, OnListItemClickedInterface listener) {
         this.context = context;
-        itemList = new ArrayList<>();
+        this.itemList = new ArrayList<>();
+        this.mListener = listener;
     }
 
     @Override
@@ -53,6 +55,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
     public List<T> getItemList() {
         return itemList;
     }
+
+    public OnListItemClickedInterface getListener() { return mListener; }
 
     @Override
     public int getItemCount() {
