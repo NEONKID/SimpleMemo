@@ -6,7 +6,8 @@
         android:required="true" />
 
     <uses-permission android:name="android.permission.CAMERA" />
-    
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".main.SimpleMemoApplication"
         android:allowBackup="true"
@@ -15,14 +16,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.view.MainActivity">
+        <provider
+            android:authorities="xyz.neonkid.simplememoj.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+
+        </provider>
+        <activity
+            android:name=".main.view.MainActivity"
+            android:launchMode="singleTop">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".main.view.MemoActivity" />
+            android:name=".main.view.MemoEdit.MemoEditActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".main.view.MemoEdit.ImageActivity"
+            android:theme="@style/AppTheme.FullScreen"/>
     </application>
 
 </manifest>
