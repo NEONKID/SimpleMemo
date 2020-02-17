@@ -6,9 +6,15 @@
     android:layout_height="wrap_content">
 
     <item
-        android:id="@+id/action_more"
-        android:icon="@android:drawable/ic_menu_more"
-        android:title=""
+        android:id="@+id/memo_save"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="@string/empty"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/memo_cancel"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/empty"
         app:showAsAction="always" />
 
 </menu>

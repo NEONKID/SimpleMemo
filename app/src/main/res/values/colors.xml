@@ -3,4 +3,5 @@
     <color name="colorPrimary">#00B8D4</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorPVImgToolbar">#B3FFFFFF</color>
 </resources>

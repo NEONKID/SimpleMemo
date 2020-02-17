@@ -6,6 +6,8 @@ import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -44,6 +46,15 @@ public abstract class BaseActivity extends AppCompatActivity {
             toolbar.setTitle(getToolbarTitle());
             setSupportActionBar(toolbar);
             toolbar.setNavigationOnClickListener(v -> finish());
+        }
+    }
+
+    protected void setToolbarColor(@ColorRes int color) {
+        if (toolbar != null) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+                toolbar.setBackgroundColor(getResources().getColor(color));
+            else
+                toolbar.setBackgroundColor(getColor(color));
         }
     }
 

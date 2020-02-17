@@ -12,12 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.ButterKnife;
 import xyz.neonkid.simplememoj.base.adapter.BaseRecyclerAdapter;
 
-public abstract class BaseRecyclerView<AD extends BaseRecyclerAdapter, T> extends RecyclerView.ViewHolder {
+public abstract class BaseRecyclerView<AD extends BaseRecyclerAdapter, T> extends RecyclerView.ViewHolder implements View.OnClickListener {
     private AD adapter;
 
     public BaseRecyclerView(AD adapter, View itemView) {
         super(itemView);
         this.adapter = adapter;
+
+        itemView.setOnClickListener(this);
         ButterKnife.bind(this, itemView);
     }
 
@@ -33,5 +35,11 @@ public abstract class BaseRecyclerView<AD extends BaseRecyclerAdapter, T> extend
 
     protected Context getContext() {
         return adapter.getContext();
+    }
+
+    @Override
+    public void onClick(View v) {
+        int pos = getLayoutPosition();
+        adapter.getListener().onItemClicked(v, pos);
     }
 }
