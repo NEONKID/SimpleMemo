@@ -41,6 +41,7 @@
         <activity
             android:name=".main.view.MemoEdit.ImageActivity"
             android:theme="@style/AppTheme.FullScreen"/>
+        <activity android:name=".main.view.Memo.MemoActivity" />
     </application>
 
 </manifest>

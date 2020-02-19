@@ -7,6 +7,8 @@
     <string name="memo_content">Content</string>
     <string name="memo_delete">Delete</string>
     <string name="memo_mod">Modify</string>
+    <string name="memo_single_count">&#160;memo</string>
+    <string name="memo_multi_count">&#160;memos</string>
     <string name="img_camera">Camera</string>
     <string name="img_storage">Gallery</string>
     <string name="img_web">URL</string>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
@@ -57,6 +58,8 @@ public abstract class BaseActivity extends AppCompatActivity {
                 toolbar.setBackgroundColor(getColor(color));
         }
     }
+
+    protected final void setToastMessage(String msg) { Toast.makeText(this, msg, Toast.LENGTH_LONG).show(); }
 
     protected abstract void onCreate();
 

@@ -39,7 +39,7 @@ public abstract class BaseRecyclerView<AD extends BaseRecyclerAdapter, T> extend
 
     @Override
     public void onClick(View v) {
-        int pos = getLayoutPosition();
-        adapter.getListener().onItemClicked(v, pos);
+        int pos = getLayoutPosition() + 1;
+        adapter.getListener().onItemClick(v, pos);
     }
 }
