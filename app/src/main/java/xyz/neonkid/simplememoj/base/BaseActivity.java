@@ -1,10 +1,12 @@
 package xyz.neonkid.simplememoj.base;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
@@ -29,16 +31,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(getLayoutResource());
         ButterKnife.bind(this);
 
-        Window window = this.getWindow();
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            window.setStatusBarColor(this.getColor(R.color.colorPrimary));
-
-        else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            window.setStatusBarColor(this.getResources().getColor(R.color.colorPrimary));
-
+        setStatusBarColor(getString(R.color.colorPrimary));
         setToolbar();
+
         onCreate();
+    }
+
+    protected void setStatusBarColor(String color) {
+        Window window = this.getWindow();
+        window.setStatusBarColor(Color.parseColor(color));
     }
 
     private void setToolbar() {
@@ -49,14 +50,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    protected void setToolbarColor(@ColorRes int color) {
-        if (toolbar != null) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-                toolbar.setBackgroundColor(getResources().getColor(color));
-            else
-                toolbar.setBackgroundColor(getColor(color));
-        }
+    protected void setToolbarColor(String color) {
+        if (toolbar != null)
+            toolbar.setBackgroundColor(Color.parseColor(color));
     }
+
+    protected final void setToastMessage(String msg) { Toast.makeText(this, msg, Toast.LENGTH_LONG).show(); }
 
     protected abstract void onCreate();
 

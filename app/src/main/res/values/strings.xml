@@ -7,6 +7,9 @@
     <string name="memo_content">Content</string>
     <string name="memo_delete">Delete</string>
     <string name="memo_mod">Modify</string>
+    <string name="memo_color_chooser_title">Choose Color</string>
+    <string name="memo_single_count">&#160;memo</string>
+    <string name="memo_multi_count">&#160;memos</string>
     <string name="img_camera">Camera</string>
     <string name="img_storage">Gallery</string>
     <string name="img_web">URL</string>
@@ -15,4 +18,16 @@
     <string name="REQUEST_PERMISSION_ACCEPTED">Permission granted</string>
     <string name="REQUEST_PERMISSION_DENIED">You must be authorized to use this feature.</string>
     <string name="empty"/>
+    
+    <string-array name="memocolor">
+        <item>#f48fb1</item>
+        <item>#b39ddb</item>
+        <item>#9fa8da</item>
+        <item>#90caf9</item>
+        <item>#cddc39</item>
+        <item>#ffeb3b</item>
+        <item>#bcaaa4</item>
+        <item>#bdbdbd</item>
+        <item>#b0bec5</item>
+    </string-array>
 </resources>

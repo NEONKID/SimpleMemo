@@ -35,12 +35,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".main.view.MemoEdit.MemoEditActivity"
             android:launchMode="singleTop" />
+
         <activity
-            android:name=".main.view.MemoEdit.ImageActivity"
+            android:name=".main.view.MemoEdit.ImageEditActivity"
             android:theme="@style/AppTheme.FullScreen"/>
+
+        <activity
+            android:name=".main.view.Memo.ImageActivity"
+            android:theme="@style/AppTheme.FullScreen"/>
+
+        <activity android:name=".main.view.Memo.MemoActivity" />
     </application>
 
 </manifest>

@@ -6,16 +6,23 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import butterknife.ButterKnife;
-import xyz.neonkid.simplememoj.base.adapter.BaseRecyclerAdapter;
+import xyz.neonkid.simplememoj.base.adapter.BaseRealmRecyclerAdapter;
 
-public abstract class BaseRecyclerView<AD extends BaseRecyclerAdapter, T> extends RecyclerView.ViewHolder implements View.OnClickListener {
+/**
+ * Created by Neon K.I.D on 2/18/20
+ *
+ * Blog : https://blog.neonkid.xyz
+ * Github : https://github.com/NEONKID
+ */
+public abstract class BaseRealmRecyclerView<AD extends BaseRealmRecyclerAdapter, T> extends RecyclerView.ViewHolder implements View.OnClickListener {
     private AD adapter;
 
-    public BaseRecyclerView(AD adapter, View itemView) {
+    public BaseRealmRecyclerView(AD adapter, @NonNull View itemView) {
         super(itemView);
         this.adapter = adapter;
 
@@ -23,7 +30,7 @@ public abstract class BaseRecyclerView<AD extends BaseRecyclerAdapter, T> extend
         ButterKnife.bind(this, itemView);
     }
 
-    public BaseRecyclerView(@LayoutRes int layoutRes, ViewGroup parent, AD adapter) {
+    public BaseRealmRecyclerView(@LayoutRes int layoutRes, ViewGroup parent, AD adapter) {
         this(adapter, LayoutInflater.from(adapter.getContext()).inflate(layoutRes, parent, false));
     }
 
