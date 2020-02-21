@@ -39,22 +39,21 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:backgroundTint="@color/colorPrimary"
-            app:navigationIcon="@android:drawable/ic_input_add">
+            app:navigationIcon="@drawable/ic_add_box_24px">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageButton
-                style="?android:attr/borderlessButtonStyle"
+                style="?android:attr/buttonBarButtonStyle"
                 android:id="@+id/memo_color_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_centerInParent="true"
                 android:background="?android:attr/selectableItemBackground"
                 android:contentDescription="@string/empty"
-                android:src="@android:drawable/ic_menu_more"/>
+                android:src="@drawable/ic_palette_24px"/>
 
         </RelativeLayout>
 

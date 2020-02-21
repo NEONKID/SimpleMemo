@@ -7,10 +7,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!-- Toolbar Theme style -->
-    <style name="AppTheme.ActionBar" parent="ThemeOverlay.AppCompat.Light">
-        <item name="android:colorPrimary">@color/colorPrimary</item>
-        <item name="android:textColor">@android:color/white</item>
+    <style name="AppTheme.ActionBar" parent="AppTheme">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorPrimaryInverse">@android:color/black</item>
     </style>
 
     <!-- Full screen theme -->
