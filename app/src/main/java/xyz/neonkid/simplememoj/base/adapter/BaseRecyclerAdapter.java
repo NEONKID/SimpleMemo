@@ -1,7 +1,6 @@
 package xyz.neonkid.simplememoj.base.adapter;
 
 import android.content.Context;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,17 +9,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.realm.RealmRecyclerViewAdapter;
 import xyz.neonkid.simplememoj.base.adapter.view.BaseRecyclerView;
-import xyz.neonkid.simplememoj.main.component.OnListItemClickedInterface;
-import xyz.neonkid.simplememoj.main.util.RealmHelper;
+import xyz.neonkid.simplememoj.main.component.listener.OnListItemClickListener;
 
 public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRecyclerView> {
     private Context context;
     private List<T> itemList;
-    private OnListItemClickedInterface mListener;
+    private OnListItemClickListener mListener;
 
-    public BaseRecyclerAdapter(Context context, OnListItemClickedInterface listener) {
+    public BaseRecyclerAdapter(Context context, OnListItemClickListener listener) {
         this.context = context;
         this.itemList = new ArrayList<>();
         this.mListener = listener;
@@ -59,7 +56,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
         return itemList;
     }
 
-    public OnListItemClickedInterface getListener() { return mListener; }
+    public OnListItemClickListener getListener() { return mListener; }
 
     @Override
     public int getItemCount() {
