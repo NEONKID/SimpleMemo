@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".main.view.MemoEdit.MemoEditActivity"
+    tools:showIn="@layout/activity_memo">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <xyz.neonkid.simplememoj.main.component.view.AutofitRecyclerView
+                android:id="@+id/memoView_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnWidth="200dp"
+                android:clipToPadding="false"
+                android:paddingBottom="10dp"
+                android:scrollbars="none"
+                android:overScrollMode="never"/>
+
+            <TextView
+                android:id="@+id/memoView_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="@string/memo_title"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:importantForAutofill="no"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp" />
+
+            <TextView
+                android:id="@+id/memoView_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:hint="@string/memo_content"
+                android:gravity="top"
+                android:minLines="6"
+                android:textSize="18sp"
+                android:background="@android:color/transparent" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
