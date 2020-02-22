@@ -41,7 +41,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (toolbar != null) {
             toolbar.setTitle(getToolbarTitle());
             setSupportActionBar(toolbar);
-            toolbar.setNavigationOnClickListener(v -> finish());
+            toolbar.setNavigationOnClickListener(v -> onBackPressed());
         }
     }
 
