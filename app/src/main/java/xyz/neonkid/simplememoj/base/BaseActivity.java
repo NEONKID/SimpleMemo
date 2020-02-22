@@ -1,15 +1,10 @@
 package xyz.neonkid.simplememoj.base;
 
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Toast;
 
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;

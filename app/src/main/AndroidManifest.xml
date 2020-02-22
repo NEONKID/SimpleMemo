@@ -4,6 +4,7 @@
     
     <uses-feature android:name="android.hardware.camera"
         android:required="true" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     
@@ -15,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <provider
             android:authorities="xyz.neonkid.simplememoj.fileprovider"
             android:name="androidx.core.content.FileProvider"
@@ -26,6 +28,7 @@
                 android:resource="@xml/provider_paths" />
 
         </provider>
+
         <activity
             android:name=".main.view.MainActivity"
             android:launchMode="singleTop">
@@ -38,6 +41,7 @@
 
         <activity
             android:name=".main.view.MemoEdit.MemoEditActivity"
+            android:theme="@style/AppTheme.EditScreen"
             android:launchMode="singleTop" />
 
         <activity

@@ -5,19 +5,12 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 import io.realm.OrderedRealmCollection;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.RealmRecyclerViewAdapter;
-import io.realm.RealmResults;
 import xyz.neonkid.simplememoj.base.adapter.view.BaseRealmRecyclerView;
-import xyz.neonkid.simplememoj.main.adapter.model.Memo;
-import xyz.neonkid.simplememoj.main.component.OnListItemClickedInterface;
-import xyz.neonkid.simplememoj.main.util.RealmHelper;
+import xyz.neonkid.simplememoj.main.component.listener.OnListItemClickListener;
 
 /**
  * Created by Neon K.I.D on 2/18/20
@@ -29,9 +22,9 @@ public abstract class BaseRealmRecyclerAdapter<T extends RealmObject, VH extends
         extends RealmRecyclerViewAdapter<T, VH> {
     private Context context;
     private OrderedRealmCollection<T> results;
-    private OnListItemClickedInterface mListener;
+    private OnListItemClickListener mListener;
 
-    public BaseRealmRecyclerAdapter(Context context, OnListItemClickedInterface listener,
+    public BaseRealmRecyclerAdapter(Context context, OnListItemClickListener listener,
                                     @Nullable OrderedRealmCollection<T> data, boolean autoUpdate) {
         super(data, autoUpdate);
 
@@ -81,5 +74,5 @@ public abstract class BaseRealmRecyclerAdapter<T extends RealmObject, VH extends
         return results != null ? results.size() : 0;
     }
 
-    public OnListItemClickedInterface getListener() { return mListener; }
+    public OnListItemClickListener getListener() { return mListener; }
 }

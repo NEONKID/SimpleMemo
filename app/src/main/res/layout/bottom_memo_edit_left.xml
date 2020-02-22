@@ -28,8 +28,8 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="32dp"
-            android:src="@android:drawable/ic_menu_camera"
-            android:contentDescription="Camera Menu" />
+            android:src="@drawable/ic_add_a_photo_24px"
+            android:contentDescription="@string/empty" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -60,8 +60,8 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="32dp"
-            android:src="@android:drawable/ic_menu_report_image"
-            android:contentDescription="Storage Menu" />
+            android:src="@drawable/ic_add_photo_alternate_24px"
+            android:contentDescription="@string/empty" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,8 +92,8 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="32dp"
-            android:src="@android:drawable/ic_menu_day"
-            android:contentDescription="Storage Menu" />
+            android:src="@drawable/ic_link_24px"
+            android:contentDescription="@string/empty" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -7,13 +7,13 @@
 
     <item
         android:id="@+id/memo_mod"
-        android:icon="@android:drawable/ic_menu_manage"
+        android:icon="@drawable/ic_edit_24px"
         android:title="@string/memo_mod"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/memo_delete"
-        android:icon="@android:drawable/ic_delete"
+        android:icon="@drawable/ic_delete_forever_24px"
         android:title="@string/memo_delete"
         app:showAsAction="always"/>
 

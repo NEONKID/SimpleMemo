@@ -35,7 +35,7 @@
             android:paddingEnd="5dp"
             android:text="@string/sample_memo_title"
             android:textStyle="bold"
-            android:textSize="25sp"/>
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/memo_content"
@@ -46,7 +46,7 @@
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
             android:text="@string/sample_memo_content"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:autoSizeTextType="uniform"
             android:autoSizeMinTextSize="10sp"
             android:autoSizeMaxTextSize="50sp" />

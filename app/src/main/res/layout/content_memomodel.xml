@@ -5,8 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/memo_card"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="5dp"
+    android:minHeight="150dp"
     app:cardElevation="5dp"
     app:cardCornerRadius="4dp"
     tools:context=".main.view.MainActivity">
@@ -20,6 +21,8 @@
             android:id="@+id/memo_img_thumbnail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxWidth="100dp"
+            android:maxHeight="100dp"
             android:contentDescription="@string/empty" />
 
         <TextView
@@ -32,18 +35,18 @@
             android:paddingEnd="5dp"
             android:text="@string/sample_memo_title"
             android:textStyle="bold"
-            android:textSize="25sp"/>
+            android:textSize="20sp"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/memo_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:paddingBottom="30dp"
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
             android:text="@string/sample_memo_content"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:autoSizeTextType="uniform"
             app:autoSizeMinTextSize="10sp"
             app:autoSizeMaxTextSize="50sp"/>

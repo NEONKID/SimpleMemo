@@ -1,6 +1,5 @@
 package xyz.neonkid.simplememoj.base.presenter;
 
-import io.realm.Realm;
 import xyz.neonkid.simplememoj.base.BaseActivity;
 import xyz.neonkid.simplememoj.base.presenter.view.BasePresenterView;
 

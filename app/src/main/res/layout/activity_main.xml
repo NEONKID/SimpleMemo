@@ -61,7 +61,7 @@
                     android:layout_centerInParent="true"
                     android:background="?android:attr/selectableItemBackground"
                     android:gravity="center"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="@android:color/white" />
 
             </RelativeLayout>
 

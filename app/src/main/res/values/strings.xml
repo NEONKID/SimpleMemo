@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">SimpleMemoJ</string>
+    <string name="alert_ok">OK</string>
+    <string name="alert_cancel">Cancel</string>
+    <string name="alert_delete">This action cannot be reversed. Would you like to continue?</string>
     <string name="no_memo">No Memos</string>
     <string name="sample_memo_title">Sample Memo Title</string>
     <string name="sample_memo_content">Sample Memo Content</string>
@@ -10,6 +13,10 @@
     <string name="memo_color_chooser_title">Choose Color</string>
     <string name="memo_single_count">&#160;memo</string>
     <string name="memo_multi_count">&#160;memos</string>
+    <string name="memo_modified_prefix">Modified:&#160;</string>
+    <string name="memo_saved_msg">The note was automatically been saved</string>
+    <string name="memo_deleted_msg">The note has been successfully deleted</string>
+    <string name="memo_image_deleted_msg">The image has been deleted</string>
     <string name="img_camera">Camera</string>
     <string name="img_storage">Gallery</string>
     <string name="img_web">URL</string>
@@ -20,14 +27,14 @@
     <string name="empty"/>
     
     <string-array name="memocolor">
+        <item>#00e5ff</item>
+        <item>#cddc39</item>
+        <item>#ffeb3b</item>
         <item>#f48fb1</item>
         <item>#b39ddb</item>
         <item>#9fa8da</item>
         <item>#90caf9</item>
-        <item>#cddc39</item>
-        <item>#ffeb3b</item>
-        <item>#bcaaa4</item>
-        <item>#bdbdbd</item>
-        <item>#b0bec5</item>
+        <item>#90a4ae</item>
+        <item>#ffffff</item>
     </string-array>
 </resources>
