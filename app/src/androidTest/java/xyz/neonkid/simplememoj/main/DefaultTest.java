@@ -205,26 +205,26 @@ public class DefaultTest {
                 withId(R.id.title_edit), withId(R.id.content_edit),
                 withId(R.id.memo_edit_bar), withId(R.id.memo_color_button), isDisplayed()));
 
-        ViewInteraction imgAdd = onView(allOf(childAtPosition(withId(R.id.memo_edit_bar), 0),
-                isDisplayed()));
-
-        imgAdd.perform(ViewActions.click());
-
-        onView(withId(R.id.menu_web)).check(matches(isDisplayed())).perform(ViewActions.click());
-
-        onView(withId(R.id.url_input)).check(matches(isDisplayed())).perform(ViewActions.typeText(
-                "https://www.bensound.com/bensound-img/dance.jpg"));
-        onView(withText(R.string.alert_ok)).inRoot(RootMatchers.isDialog()).check(matches(isDisplayed()))
-                .perform(ViewActions.click());
-
-        onView(new RecyclerViewMatcher(R.id.memo_img).atPositionOnView(0, R.id.memo_imgModel))
-                .check(matches(isDisplayed()));
-
-        Thread.sleep(1500);
-
-        onView(withText(R.string.memo_saved_msg)).inRoot(RootMatchers.withDecorView(Matchers.not(
-                Matchers.is(getCurrentActivity().getWindow().getDecorView()))
-        )).check(matches(isDisplayed()));
+//        ViewInteraction imgAdd = onView(allOf(childAtPosition(withId(R.id.memo_edit_bar), 0),
+//                isDisplayed()));
+//
+//        imgAdd.perform(ViewActions.click());
+//
+//        onView(withId(R.id.menu_web)).check(matches(isDisplayed())).perform(ViewActions.click());
+//
+//        onView(withId(R.id.url_input)).check(matches(isDisplayed())).perform(ViewActions.typeText(
+//                "https://www.bensound.com/bensound-img/dance.jpg"));
+//        onView(withText(R.string.alert_ok)).inRoot(RootMatchers.isDialog()).check(matches(isDisplayed()))
+//                .perform(ViewActions.click());
+//
+//        onView(new RecyclerViewMatcher(R.id.memo_img).atPositionOnView(0, R.id.memo_imgModel))
+//                .check(matches(isDisplayed()));
+//
+//        Thread.sleep(1500);
+//
+//        onView(withText(R.string.memo_saved_msg)).inRoot(RootMatchers.withDecorView(Matchers.not(
+//                Matchers.is(getCurrentActivity().getWindow().getDecorView()))
+//        )).check(matches(isDisplayed()));
     }
 
     /**
