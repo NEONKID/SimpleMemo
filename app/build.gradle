@@ -13,25 +13,31 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     lintOptions {
         disable "ResourceType"
     }
+
     defaultConfig {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     realm {
         syncEnabled = true
     }
+
     testOptions {
         unitTests.includeAndroidResources = true
         unitTests.returnDefaultValues = true
@@ -55,12 +61,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test:rules:1.2.0'
-    androidTestImplementation 'androidx.test:core:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoLibVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoLibVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoLibVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-accessibility:$espressoLibVersion"
+    testImplementation 'androidx.test:core:1.2.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.ext:truth:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.2.0'
+    testImplementation 'androidx.test.ext:truth:1.2.0'
+    testImplementation "io.reactivex.rxjava2:rxjava:2.1.13"
 }

@@ -16,6 +16,14 @@ import java.util.Objects;
 
 import butterknife.ButterKnife;
 
+/**
+ * Created by Neon K.I.D on 2/18/20
+ *
+ * 이 클래스는 메모 에디터에서 하단 메뉴를 띄우는 데 사용하는 Fragment의 공통 코드입니다.
+ *
+ * Blog : https://blog.neonkid.xyz
+ * Github : https://github.com/NEONKID
+ */
 public abstract class BaseBottomSheetFragment extends BottomSheetDialogFragment {
     @Nullable
     @Override

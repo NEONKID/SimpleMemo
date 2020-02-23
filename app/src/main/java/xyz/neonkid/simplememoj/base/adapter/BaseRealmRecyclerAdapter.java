@@ -15,6 +15,15 @@ import xyz.neonkid.simplememoj.main.component.listener.OnListItemClickListener;
 /**
  * Created by Neon K.I.D on 2/18/20
  *
+ * RealmRecyclerView Adapter의 기본 코드를 정의해놓은 클래스입니다.
+ *
+ * 이 클래스는 Realm DB와 연동되는 RecyclerView를 위한 Adapter입니다.
+ *
+ * 경고: 이 클래스에서는 RealmCollection을 이용합니다.
+ * Java의 List를 사용할 경우, 오류가 발생함을 유의하십시오.
+ *
+ * 반드시 사용할 때, Application에서 Realm을 초기화한 후 사용하십시오.
+ *
  * Blog : https://blog.neonkid.xyz
  * Github : https://github.com/NEONKID
  */

@@ -68,7 +68,6 @@ public class MemoEditRightBSFragment extends BaseBottomSheetFragment implements 
         adapter = new MemoColorRecyclerAdapter(getContext(), this);
         colorChooser.setAdapter(adapter);
 
-        // CREATE COLOR
         for (String color : memoColor)
             adapter.addMemoColor(new MemoColor(color));
     }

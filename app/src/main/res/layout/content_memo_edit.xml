@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <xyz.neonkid.simplememoj.main.component.view.AutofitRecyclerView
+            <xyz.neonkid.simplememoj.main.component.view.AutoSizeRecyclerView
                 android:id="@+id/memo_img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

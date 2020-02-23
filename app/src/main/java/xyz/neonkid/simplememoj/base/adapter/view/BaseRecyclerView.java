@@ -12,6 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.ButterKnife;
 import xyz.neonkid.simplememoj.base.adapter.BaseRecyclerAdapter;
 
+/**
+ * Created by Neon K.I.D on 2/18/20
+ *
+ * RecyclerView의 기본 코드를 정의해 놓은 클래스입니다.
+ *
+ * 이 클래스는 Realm DB를 사용하지 않습니다.
+ *
+ * Blog : https://blog.neonkid.xyz
+ * Github : https://github.com/NEONKID
+ */
 public abstract class BaseRecyclerView<AD extends BaseRecyclerAdapter, T> extends RecyclerView.ViewHolder implements View.OnClickListener {
     private AD adapter;
 

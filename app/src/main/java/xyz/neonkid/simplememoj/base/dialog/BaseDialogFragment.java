@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +17,8 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Neon K.I.D on 2/21/20
+ *
+ * Alert 창에 대한 기본 코드를 정의한 클래스입니다.
  *
  * Blog : https://blog.neonkid.xyz
  * Github : https://github.com/NEONKID
@@ -35,7 +38,12 @@ public abstract class BaseDialogFragment extends DialogFragment {
 
         onCreate();
 
-        return builder.create();
+        AlertDialog res = builder.create();
+        Objects.requireNonNull(res.getWindow()).setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE
+        );
+
+        return res;
     }
 
     protected final AlertDialog.Builder getBuilder() {

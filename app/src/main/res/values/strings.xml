@@ -37,4 +37,5 @@
         <item>#90a4ae</item>
         <item>#ffffff</item>
     </string-array>
+    <string name="alert_invalid_url">Please enter a valid URL address</string>
 </resources>

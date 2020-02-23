@@ -28,7 +28,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="32dp"
-            android:src="@drawable/ic_add_a_photo_24px"
+            android:src="@drawable/ic_add_a_photo"
             android:contentDescription="@string/empty" />
 
         <TextView
@@ -60,7 +60,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="32dp"
-            android:src="@drawable/ic_add_photo_alternate_24px"
+            android:src="@drawable/ic_add_photo_alternate"
             android:contentDescription="@string/empty" />
 
         <TextView
@@ -92,7 +92,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="32dp"
-            android:src="@drawable/ic_link_24px"
+            android:src="@drawable/ic_link"
             android:contentDescription="@string/empty" />
 
         <TextView

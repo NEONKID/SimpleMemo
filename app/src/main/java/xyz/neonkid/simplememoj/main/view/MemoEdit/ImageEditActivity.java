@@ -54,6 +54,11 @@ public class ImageEditActivity extends BaseActivity implements ImageEditPresente
         setToolbarColor(getString(R.color.colorPVImgToolbar));
     }
 
+    /**
+     * 화면에 띄워진 이미지가 메모의 몇 번째 이미지인지를 반환하는 함수입니다.
+     *
+     * @param pos 화면에 띄워진 이미지의 위치
+     */
     private void setPagerStatus(int pos) {
         curImgId = adapter.getItemList().get(pos).getId();
         String title = (pos + 1) + " / " + adapter.getItemCount();
@@ -62,6 +67,9 @@ public class ImageEditActivity extends BaseActivity implements ImageEditPresente
             getSupportActionBar().setTitle(title);
     }
 
+    /**
+     * MemoEditActivity로부터 받은 이미지들을 배치하는 함수입니다.
+     */
     private void dataLoading() {
         memoEditIntent = getIntent();
 
@@ -99,6 +107,10 @@ public class ImageEditActivity extends BaseActivity implements ImageEditPresente
         return true;
     }
 
+    /**
+     * 삭제 버튼을 클릭하게 되면, 현재 화면에 보여진 이미지의 ID를
+     * MemoEditActivity에 넘겨주고, 삭제하게 됩니다.
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.img_delete) {

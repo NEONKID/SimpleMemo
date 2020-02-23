@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import butterknife.BindView;
 import xyz.neonkid.simplememoj.R;
@@ -34,9 +33,8 @@ public class MemoImageRealmRecyclerView extends BaseRealmRecyclerView<MemoImageR
     public void onViewHolder(@Nullable MemoImage item, int position) {
         if (item != null) {
             Glide.with(getContext()).load(item.getUri())
-                    .diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true)
-                    .placeholder(R.drawable.placeholder)
-                    .error(R.drawable.error)
+                    .placeholder(R.drawable.im_placeholder)
+                    .error(R.drawable.im_error)
                     .fallback(new ColorDrawable(Color.GRAY))
                     .into(memoImgModel);
         }
