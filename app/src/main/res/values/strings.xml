@@ -3,7 +3,7 @@
     <string name="alert_ok">OK</string>
     <string name="alert_cancel">Cancel</string>
     <string name="alert_delete">This action cannot be reversed. Would you like to continue?</string>
-    <string name="no_memo">No Memos</string>
+    <string name="no_memo">No Memo</string>
     <string name="sample_memo_title">Sample Memo Title</string>
     <string name="sample_memo_content">Sample Memo Content</string>
     <string name="memo_title">Title</string>

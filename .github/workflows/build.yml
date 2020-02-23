@@ -1,0 +1,28 @@
+name: Android Feature Branch CI
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    name: Unit Tests
+    runs-on: macOS-latest
+    strategy:
+      matrix:
+        api-level: [29]
+        target: [default]
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+
+      - name: Run Espresso Instrumentation Test
+        uses: ReactiveCircus/android-emulator-runner@v2.4.0
+        with:
+          api-level: ${{ matrix.api-level }}
+          target: ${{ matrix.target }}
+          arch: x86_64
+          profile: Nexus 6
+          script: ./gradlew connectedAndroidTest --stacktrace

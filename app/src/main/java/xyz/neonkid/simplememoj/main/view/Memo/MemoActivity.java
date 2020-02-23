@@ -68,13 +68,6 @@ public class MemoActivity extends BaseActivity implements MemoPresenterView,
         memoViewImg.setAdapter(adapter);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (isAllempty())
-            finish();
-    }
-
     private void dataLoading() {
         Intent memoViewIntent = getIntent();
 
@@ -92,12 +85,6 @@ public class MemoActivity extends BaseActivity implements MemoPresenterView,
 
         renderMemo(cur);
     }
-
-    private boolean isAllempty() {
-        return memoViewTitle.getText().toString().equals("") &&
-                memoViewContent.getText().toString().equals("") && adapter.getItemList().isEmpty();
-    }
-
 
     @Override
     public void onChange(Memo memo) {
