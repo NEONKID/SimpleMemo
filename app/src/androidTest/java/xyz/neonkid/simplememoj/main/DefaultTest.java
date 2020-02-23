@@ -159,7 +159,7 @@ public class DefaultTest {
         onView(withId(R.id.title_edit)).perform(ViewActions.typeText("Unit Test Sample"));
         onView(withId(R.id.content_edit)).perform(ViewActions.typeText("Unit Test Sample"));
 
-        Thread.sleep(8000);
+        Thread.sleep(7500);
 
         onView(withText(R.string.memo_saved_msg)).inRoot(RootMatchers.withDecorView(Matchers.not(
                 Matchers.is(getCurrentActivity().getWindow().getDecorView()))
@@ -170,10 +170,8 @@ public class DefaultTest {
      * 저장된 메모를 확인하는 테스트 메소드입니다.
      */
     @Test
-    public void TestE() throws Throwable {
+    public void TestE() {
         assertNotEquals(0, itemCount);
-
-        Thread.sleep(2000);
 
         onView(new RecyclerViewMatcher(R.id.memo_view).atPositionOnView(itemCount - 1, R.id.memo_card))
                 .check(matches(isDisplayed())).perform(ViewActions.click());
