@@ -12,7 +12,6 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -90,7 +89,7 @@ public class MemoEditLeftBSFragment extends BaseBottomSheetFragment {
         if (ActivityCompat.checkSelfPermission(Objects.requireNonNull(getContext()), perms[0])
                 != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(Objects.requireNonNull(getActivity()), perms[0]))
-                Toast.makeText(getActivity(), getString(R.string.REQUEST_PERMISSION_NOTIFICATIONS), Toast.LENGTH_LONG).show();
+                setToastMessage(getString(R.string.REQUEST_PERMISSION_NOTIFICATIONS));
             requestPermissions(perms, MemoCode.MemoPerm.REQUEST_CAMERA);
         } else onTakePicture();
     }
@@ -129,19 +128,18 @@ public class MemoEditLeftBSFragment extends BaseBottomSheetFragment {
     private void onGetWebURL() {
         if (getFragmentManager() != null)
             URLDialogFragment.newInstance(URL -> {
-                onDataSetListener.onURISet(URL);
+                onDataSetListener.onURLSet(URL);
                 fragment.dismiss();
             }).show(getFragmentManager(), "URL_DIALOG");
-
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-            Toast.makeText(getActivity(), getString(R.string.REQUEST_PERMISSION_ACCEPTED), Toast.LENGTH_LONG).show();
+            setToastMessage(getString(R.string.REQUEST_PERMISSION_ACCEPTED));
         else
-            Toast.makeText(getActivity(), getString(R.string.REQUEST_PERMISSION_DENIED), Toast.LENGTH_LONG).show();
+            setToastMessage(getString(R.string.REQUEST_PERMISSION_DENIED));
     }
 
     @OnClick(R.id.menu_camera)
@@ -169,6 +167,6 @@ public class MemoEditLeftBSFragment extends BaseBottomSheetFragment {
 
     public interface OnDataSetListener {
         void onFileSet(File file);
-        void onURISet(String Url);
+        void onURLSet(String Url);
     }
 }

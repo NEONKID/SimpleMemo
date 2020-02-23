@@ -12,6 +12,17 @@ import java.util.List;
 import xyz.neonkid.simplememoj.base.adapter.view.BaseRecyclerView;
 import xyz.neonkid.simplememoj.main.component.listener.OnListItemClickListener;
 
+/**
+ * Created by Neon K.I.D on 2/18/20
+ *
+ * RecyclerView Adapter의 기본 코드를 정의해 놓은 클래스입니다.
+ *
+ * 이 클래스는 Realm DB와 연동되지 않는 클래스이므로,
+ * Realm DB를 사용하지 않는 일반 RecyclerView 구현시 사용해주십시오.
+ *
+ * Blog : https://blog.neonkid.xyz
+ * Github : https://github.com/NEONKID
+ */
 public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRecyclerView> {
     private Context context;
     private List<T> itemList;

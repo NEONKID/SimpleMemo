@@ -1,5 +1,7 @@
 package xyz.neonkid.simplememoj.main.adapter.view;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
@@ -31,6 +33,10 @@ public class MemoImagePagerRecyclerView extends BaseRecyclerView<MemoImagePagerR
     public void onViewHolder(@Nullable MemoImage item, int position) {
         if (item != null)
             Glide.with(getContext())
-                    .load(item.getUri()).into(multiImgView);
+                    .load(item.getUri())
+                    .placeholder(R.drawable.im_placeholder)
+                    .error(R.drawable.im_error)
+                    .fallback(new ColorDrawable(Color.GRAY))
+                    .into(multiImgView);
     }
 }

@@ -16,6 +16,9 @@ import xyz.neonkid.simplememoj.base.adapter.BaseRealmRecyclerAdapter;
 /**
  * Created by Neon K.I.D on 2/18/20
  *
+ * RealmRecyclerView의 기본 코드를 정의해 놓은 클래스입니다.
+ * 이 클래스에서는 Realm DB를 사용하는 Adapter와 연동할 때 사용합니다.
+ *
  * Blog : https://blog.neonkid.xyz
  * Github : https://github.com/NEONKID
  */

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="xyz.neonkid.simplememoj">
     
     <uses-feature android:name="android.hardware.camera"
@@ -9,13 +11,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
     
     <application
-        android:name=".main.SimpleMemoApplication"
-        android:allowBackup="true"
+        android:name=".SimpleMemoApplication"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="InnerclassSeparator">
 
         <provider
             android:authorities="xyz.neonkid.simplememoj.fileprovider"
@@ -35,9 +38,13 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+        <activity android:name=".main.view.Memo.MemoActivity" />
 
         <activity
             android:name=".main.view.MemoEdit.MemoEditActivity"
@@ -51,8 +58,6 @@
         <activity
             android:name=".main.view.Memo.ImageActivity"
             android:theme="@style/AppTheme.FullScreen"/>
-
-        <activity android:name=".main.view.Memo.MemoActivity" />
     </application>
 
 </manifest>
