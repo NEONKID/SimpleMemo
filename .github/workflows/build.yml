@@ -25,4 +25,4 @@ jobs:
           target: ${{ matrix.target }}
           arch: x86_64
           profile: Nexus 6
-        run: bash ./gradlew connectedAndroidTest --stacktrace
+          script: ./gradlew connectedAndroidTest --stacktrace
