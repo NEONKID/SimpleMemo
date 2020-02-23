@@ -1,5 +1,7 @@
 # SimpleMemoJ
 
+[![Build Status](https://github.com/NEONKID/SimpleMemo/workflows/Android%20Feature%20Branch%20CI/badge.svg)](https://github.com/NEONKID/SimpleMemo/actions?workflow=Android%20Feature%20Branch%20CI)
+
 간단하게 사진을 저장하고, 메모를 작성할 수 있는 안드로이드 애플리케이션입니다.
 
 <br />
