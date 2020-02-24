@@ -26,6 +26,10 @@
 
 해당 앱에서는 MVP 패턴을 사용하였고, 뷰 바인딩을 위하여 ButterKnife, 메모 이미지를 로딩하는 데 필요한 Glide 라이브러리를 사용하였습니다.
 
-* ButterKnife
-* Glide
+그 외에, DB로 Realm, 메모에 저장된 이미지를 보여주기 위해 PhotoView 컴포넌트를 사용하였습니다.
+
+* ButterKnife (https://github.com/JakeWharton/butterknife)
+* Glide (https://github.com/bumptech/glide)
+* Realm DB (https://github.com/realm/realm-java)
+* PhotoView (https://github.com/chrisbanes/PhotoView)
 
