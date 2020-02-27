@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import io.realm.OrderedCollectionChangeSet;
 import io.realm.OrderedRealmCollection;
 import io.realm.OrderedRealmCollectionChangeListener;
+import io.realm.RealmChangeListener;
 import io.realm.RealmList;
 import io.realm.RealmResults;
 import xyz.neonkid.simplememoj.base.adapter.BaseRealmRecyclerAdapter;
@@ -52,7 +53,7 @@ public class MemoRealmRecyclerAdapter extends BaseRealmRecyclerAdapter<Memo, Mem
     }
 
     @Override
-    public void onChange(Object o, OrderedCollectionChangeSet changeSet) {
+    public void onChange(@NonNull Object o, OrderedCollectionChangeSet changeSet) {
         if (changeSet.getState() == OrderedCollectionChangeSet.State.INITIAL) {
             notifyDataSetChanged();
             return;
@@ -87,9 +88,8 @@ public class MemoRealmRecyclerAdapter extends BaseRealmRecyclerAdapter<Memo, Mem
 
             // noinspection unchecked
             list.addChangeListener(this);
-        } else {
+        } else
             throw new IllegalArgumentException("RealmCollection not supported: " + data.getClass());
-        }
     }
 
     private void removeListener(@NonNull OrderedRealmCollection<Memo> data) {
