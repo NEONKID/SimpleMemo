@@ -1,12 +1,8 @@
 package xyz.neonkid.simplememoj.main.view.MemoEdit.fragment;
 
-import android.Manifest;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
@@ -15,8 +11,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresPermission;
-import androidx.core.app.ActivityCompat;
 
 import java.io.File;
 import java.io.IOException;
@@ -80,21 +74,6 @@ public class MemoEditLeftBSFragment extends BaseBottomSheetFragment {
         onDataSetListener = null;
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
-    private void onCheckPermissionCamera() {
-        String[] perms = {
-                Manifest.permission.CAMERA,
-        };
-
-        if (ActivityCompat.checkSelfPermission(Objects.requireNonNull(getContext()), perms[0])
-                != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(Objects.requireNonNull(getActivity()), perms[0]))
-                setToastMessage(getString(R.string.REQUEST_PERMISSION_NOTIFICATIONS));
-            requestPermissions(perms, MemoCode.MemoPerm.REQUEST_CAMERA);
-        } else onTakePicture();
-    }
-
-    @RequiresPermission(Manifest.permission.CAMERA)
     private void onTakePicture() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (intent.resolveActivity(Objects.requireNonNull(getActivity()).getPackageManager()) != null) {
@@ -133,24 +112,9 @@ public class MemoEditLeftBSFragment extends BaseBottomSheetFragment {
             }).show(getFragmentManager(), "URL_DIALOG");
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-            setToastMessage(getString(R.string.REQUEST_PERMISSION_ACCEPTED));
-        else
-            setToastMessage(getString(R.string.REQUEST_PERMISSION_DENIED));
-    }
-
     @OnClick(R.id.menu_camera)
     public void menuCameraClick() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            try {
-                onTakePicture();
-            } catch (SecurityException ex) {
-                ex.printStackTrace();
-            }
-        } else onCheckPermissionCamera();
+        onTakePicture();
         fragment.dismiss();
     }
 
