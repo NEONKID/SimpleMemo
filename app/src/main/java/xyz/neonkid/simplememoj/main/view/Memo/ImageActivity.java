@@ -1,9 +1,5 @@
 package xyz.neonkid.simplememoj.main.view.Memo;
 
-import android.view.View;
-
-import java.util.Objects;
-
 import xyz.neonkid.simplememoj.R;
 import xyz.neonkid.simplememoj.base.BaseImageActivity;
 import xyz.neonkid.simplememoj.main.component.listener.OnListItemClickListener;
@@ -32,13 +28,5 @@ public class ImageActivity extends BaseImageActivity implements ImagePresenterVi
     @Override
     protected int getToolbarTitle() {
         return R.string.empty;
-    }
-
-    @Override
-    public void onItemClick(View v, int pos) {
-        if (Objects.requireNonNull(getSupportActionBar()).isShowing())
-            getSupportActionBar().hide();
-        else
-            getSupportActionBar().show();
     }
 }
