@@ -57,6 +57,9 @@
         <activity
             android:name=".main.view.Memo.ImageActivity"
             android:theme="@style/AppTheme.FullScreen"/>
+
+        <activity
+            android:name=".main.view.Error.ErrorActivity" />
     </application>
 
 </manifest>
