@@ -26,4 +26,7 @@
     <string name="sample_memo_content">Sample Memo Content</string>
     <string name="sample_memo_title">Sample Memo Title</string>
     <string name="alert_invalid_url">올바른 URL 주소를 입력해주세요</string>
+    <string name="error_title">죄송합니다</string>
+    <string name="error_content">일시적인 오류가 발생했습니다</string>
+    <string name="error_refresh">새로 고침</string>
 </resources>
