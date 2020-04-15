@@ -11,7 +11,7 @@ import xyz.neonkid.simplememoj.base.adapter.BaseRealmRecyclerAdapter;
 import xyz.neonkid.simplememoj.main.adapter.model.MemoImage;
 import xyz.neonkid.simplememoj.main.adapter.model.MemoImageModel;
 import xyz.neonkid.simplememoj.main.adapter.view.MemoImageRealmRecyclerView;
-import xyz.neonkid.simplememoj.main.component.listener.OnListItemClickListener;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 
 /**
  * Created by Neon K.I.D on 2/19/20
@@ -23,7 +23,7 @@ public class MemoImageRealmRecyclerAdapter extends BaseRealmRecyclerAdapter<Memo
     public MemoImageRealmRecyclerAdapter(Context context, OnListItemClickListener listener,
                                          @Nullable OrderedRealmCollection<MemoImage> data,
                                          boolean autoUpdate) {
-        super(context, listener, data, autoUpdate);
+        super(context, listener, null, data, autoUpdate);
     }
 
     @NonNull

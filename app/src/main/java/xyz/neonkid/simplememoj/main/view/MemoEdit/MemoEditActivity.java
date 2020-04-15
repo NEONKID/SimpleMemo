@@ -24,13 +24,14 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.realm.RealmChangeListener;
+import io.realm.RealmResults;
 import xyz.neonkid.simplememoj.R;
 import xyz.neonkid.simplememoj.base.BaseActivity;
 import xyz.neonkid.simplememoj.main.adapter.MemoImageRealmRecyclerAdapter;
 import xyz.neonkid.simplememoj.main.adapter.model.Memo;
 import xyz.neonkid.simplememoj.main.adapter.model.MemoImage;
 import xyz.neonkid.simplememoj.main.component.anim.RevealAnimation;
-import xyz.neonkid.simplememoj.main.component.listener.OnListItemClickListener;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 import xyz.neonkid.simplememoj.main.presenter.MemoEdit.MemoEditPresenter;
 import xyz.neonkid.simplememoj.main.presenter.MemoEdit.view.MemoEditPresenterView;
 import xyz.neonkid.simplememoj.main.util.MemoCode;
@@ -234,7 +235,10 @@ public class MemoEditActivity extends BaseActivity implements MemoEditPresenterV
         else {
             curColor = getString(R.color.colorPrimary);
             presenter.insertMemo(curId, "", "", curColor, null, false);
-            memo = presenter.loadMemos().last();
+
+            RealmResults<Memo> memos = presenter.loadMemos();
+            if (memos.isLoaded())
+                memo = memos.last();
         }
 
         if (memo != null) {

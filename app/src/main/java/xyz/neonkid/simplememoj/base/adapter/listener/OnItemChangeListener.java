@@ -1,4 +1,4 @@
-package xyz.neonkid.simplememoj.main.component.listener;
+package xyz.neonkid.simplememoj.base.adapter.listener;
 
 /**
  * Created by Neon K.I.D on 2/20/20

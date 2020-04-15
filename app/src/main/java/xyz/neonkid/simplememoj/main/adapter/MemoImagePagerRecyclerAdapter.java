@@ -10,7 +10,7 @@ import xyz.neonkid.simplememoj.base.adapter.view.BaseRecyclerView;
 import xyz.neonkid.simplememoj.main.adapter.model.MemoImage;
 import xyz.neonkid.simplememoj.main.adapter.model.MemoImageModel;
 import xyz.neonkid.simplememoj.main.adapter.view.MemoImagePagerRecyclerView;
-import xyz.neonkid.simplememoj.main.component.listener.OnListItemClickListener;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 
 /**
  * Created by Neon K.I.D on 2/21/20

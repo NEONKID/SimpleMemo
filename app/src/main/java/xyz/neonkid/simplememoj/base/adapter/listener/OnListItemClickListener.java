@@ -1,4 +1,4 @@
-package xyz.neonkid.simplememoj.main.component.listener;
+package xyz.neonkid.simplememoj.base.adapter.listener;
 
 import android.view.View;
 

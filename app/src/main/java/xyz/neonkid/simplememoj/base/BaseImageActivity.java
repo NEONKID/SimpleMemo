@@ -15,7 +15,7 @@ import butterknife.BindView;
 import xyz.neonkid.simplememoj.R;
 import xyz.neonkid.simplememoj.main.adapter.MemoImagePagerRecyclerAdapter;
 import xyz.neonkid.simplememoj.main.adapter.model.MemoImage;
-import xyz.neonkid.simplememoj.main.component.listener.OnListItemClickListener;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 
 /**
  * Created by Neon K.I.D on 2/27/20

@@ -50,6 +50,6 @@ public abstract class BaseRealmRecyclerView<AD extends BaseRealmRecyclerAdapter,
     @Override
     public void onClick(View v) {
         int pos = getLayoutPosition();
-        adapter.getListener().onItemClick(v, pos);
+        adapter.getClickListener().onItemClick(v, pos);
     }
 }

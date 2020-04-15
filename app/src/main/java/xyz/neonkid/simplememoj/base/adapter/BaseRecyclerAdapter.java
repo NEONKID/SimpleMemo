@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import xyz.neonkid.simplememoj.base.adapter.view.BaseRecyclerView;
-import xyz.neonkid.simplememoj.main.component.listener.OnListItemClickListener;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 
 /**
  * Created by Neon K.I.D on 2/18/20

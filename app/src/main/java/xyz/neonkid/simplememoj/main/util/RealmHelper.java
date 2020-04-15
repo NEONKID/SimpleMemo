@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import java.io.File;
 import java.util.Calendar;
 import java.util.TimeZone;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -82,6 +83,7 @@ public class RealmHelper {
         realm.executeTransaction(realm -> {
             if (mi != null)
                 memo.setTransactionImg(mi);
+
             realm.copyToRealm(memo);
         });
     }
@@ -110,7 +112,7 @@ public class RealmHelper {
      * @return 저장된 메모들
      */
     public RealmResults<Memo> getMemos() {
-        return realm.where(Memo.class).findAll().sort(Memo.FIELD_ID, Sort.ASCENDING);
+        return realm.where(Memo.class).findAllAsync().sort(Memo.FIELD_ID, Sort.ASCENDING);
     }
 
     /**
@@ -120,7 +122,7 @@ public class RealmHelper {
      * @return memoId에 해당하는 이미지들
      */
     public RealmResults<MemoImage> getMemoImages(int memoId) {
-        return realm.where(MemoImage.class).equalTo("memo.id", memoId).findAll()
+        return realm.where(MemoImage.class).equalTo("memo.id", memoId).findAllAsync()
                 .sort(MemoImage.FIELD_ID, Sort.ASCENDING);
     }
 
@@ -131,7 +133,7 @@ public class RealmHelper {
      * @return id에 해당하는 모든 메모
      */
     public RealmResults<Memo> getMemoWithId(int id) {
-        return realm.where(Memo.class).equalTo(Memo.FIELD_ID, id).findAll()
+        return realm.where(Memo.class).equalTo(Memo.FIELD_ID, id).findAllAsync()
                 .sort(Memo.FIELD_ID, Sort.ASCENDING);
     }
 
@@ -142,7 +144,7 @@ public class RealmHelper {
      * @return id에 해당하는 모든 메모 이미지
      */
     public RealmResults<MemoImage> getMemoImageWithId(int id) {
-        return realm.where(MemoImage.class).equalTo(MemoImage.FIELD_ID, id).findAll()
+        return realm.where(MemoImage.class).equalTo(MemoImage.FIELD_ID, id).findAllAsync()
                 .sort(MemoImage.FIELD_ID, Sort.ASCENDING);
     }
 
@@ -161,21 +163,23 @@ public class RealmHelper {
                                    @Nullable MemoImage mi) {
         RealmResults<Memo> res = getMemoWithId(id);
 
-        if (res.isEmpty())
-            return false;
+        if (res.isLoaded()) {
+            if (res.isEmpty())
+                return false;
 
-        Memo memo = res.get(0);
+            Memo memo = res.get(0);
 
-        if (memo != null) {
-            realm.executeTransaction(realm -> {
-                memo.setTitle(title);
-                memo.setContent(content);
-                memo.setColor(color);
-                memo.setModified(Calendar.getInstance(TimeZone.getDefault()).getTime());
+            if (memo != null) {
+                realm.executeTransaction(realm -> {
+                    memo.setTitle(title);
+                    memo.setContent(content);
+                    memo.setColor(color);
+                    memo.setModified(Calendar.getInstance(TimeZone.getDefault()).getTime());
 
-                if (mi != null)
-                    memo.setTransactionImg(mi);
-            });
+                    if (mi != null)
+                        memo.setTransactionImg(mi);
+                });
+            }
         }
 
         return true;
@@ -191,10 +195,11 @@ public class RealmHelper {
         RealmResults<Memo> res = getMemoWithId(id);
         deleteMemoImageWithMemoId(id);
 
-        if (res.isEmpty())
-            return;
-
-        realm.executeTransaction(realm -> res.deleteAllFromRealm());
+        if (res.isLoaded()) {
+            if (res.isEmpty())
+                return;
+            realm.executeTransaction(realm -> res.deleteAllFromRealm());
+        }
     }
 
     /**
@@ -206,24 +211,25 @@ public class RealmHelper {
     public void deleteMemoImageWithMemoImageId(int imageId) {
         RealmResults<MemoImage> res = getMemoImageWithId(imageId);
 
-        if (res.isEmpty())
-            return;
+        if (res.isLoaded()) {
+            if (res.isEmpty())
+                return;
 
-        for (MemoImage img : res)
-            FileUtils.deleteFile(new File(img.getUri()));
+            for (MemoImage img : res)
+                FileUtils.deleteFile(new File(img.getUri()));
 
-        realm.executeTransaction(realm -> {
-            res.deleteAllFromRealm();
-        });
+            realm.executeTransaction(realm -> res.deleteAllFromRealm());
+        }
     }
 
     private void deleteMemoImageWithMemoId(int memoId) {
         RealmResults<MemoImage> res = getMemoImages(memoId);
 
-        if (res.isEmpty())
-            return;
-
-        realm.executeTransaction(realm -> res.deleteAllFromRealm());
+        if (res.isLoaded()) {
+            if (res.isEmpty())
+                return;
+            realm.executeTransaction(realm -> res.deleteAllFromRealm());
+        }
     }
 
     /**
