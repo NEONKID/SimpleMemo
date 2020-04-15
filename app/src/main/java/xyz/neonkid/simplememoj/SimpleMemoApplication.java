@@ -2,6 +2,9 @@ package xyz.neonkid.simplememoj;
 
 import android.app.Application;
 
+import com.crashlytics.android.Crashlytics;
+
+import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
 import xyz.neonkid.simplememoj.main.util.RealmHelper;
 import xyz.neonkid.simplememoj.main.util.AppExceptionHandler;
@@ -28,6 +31,8 @@ public class SimpleMemoApplication extends Application {
         Thread.UncaughtExceptionHandler defaultExceptionHandler
                 = Thread.getDefaultUncaughtExceptionHandler();
         Thread.setDefaultUncaughtExceptionHandler((t, e) -> {});
+
+        Fabric.with(this, new Crashlytics());
 
         Thread.UncaughtExceptionHandler fabricExceptionHandler
                 = Thread.getDefaultUncaughtExceptionHandler();
