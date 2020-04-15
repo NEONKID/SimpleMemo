@@ -50,7 +50,7 @@ public class MemoEditPresenter extends BasePresenter<MemoEditPresenterView, Memo
     }
 
     public void deleteMemo(int memoId) {
-        Realm.Transaction.OnSuccess success = () -> getView().setToast(getContext().getString(R.string.memo_saved_msg));
+        Realm.Transaction.OnSuccess success = () -> getView().setToast(getContext().getString(R.string.memo_deleted_msg));
         Realm.Transaction.OnError error = ex -> getView().setToast(ex.getMessage());
 
         RealmHelper.getInstance().deleteMemoWithId(memoId, success, error);
