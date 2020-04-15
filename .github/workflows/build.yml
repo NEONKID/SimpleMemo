@@ -17,7 +17,11 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v1
-
+      - name: Create Firebase Configuration for Neon K.I.D
+        env:
+          FIREBASE_CONFIG: ${{ secrets.GOOGLE_SERVICE_TOKEN }}
+          run: |
+            echo $FIREBASE_CONFIG > app/google-services.json
       - name: Run Espresso Instrumentation Test
         uses: ReactiveCircus/android-emulator-runner@v2.4.0
         with:
