@@ -10,13 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import butterknife.BindView;
+import io.realm.RealmResults;
 import xyz.neonkid.simplememoj.R;
 import xyz.neonkid.simplememoj.base.BaseActivity;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnItemChangeListener;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 import xyz.neonkid.simplememoj.main.adapter.MemoRealmRecyclerAdapter;
 import xyz.neonkid.simplememoj.main.adapter.model.Memo;
 import xyz.neonkid.simplememoj.main.component.anim.RevealAnimation;
-import xyz.neonkid.simplememoj.main.component.listener.OnListItemClickListener;
-import xyz.neonkid.simplememoj.main.component.listener.OnMemoChangeListener;
 import xyz.neonkid.simplememoj.main.presenter.MainPresenter;
 import xyz.neonkid.simplememoj.main.presenter.view.MainPresenterView;
 import xyz.neonkid.simplememoj.main.util.MemoCode;
@@ -30,7 +31,7 @@ import xyz.neonkid.simplememoj.main.view.MemoEdit.MemoEditActivity;
  * Github : https://github.com/NEONKID
  */
 public class MainActivity extends BaseActivity implements MainPresenterView,
-        OnListItemClickListener, OnMemoChangeListener, View.OnClickListener {
+        OnListItemClickListener, OnItemChangeListener, View.OnClickListener {
     private MainPresenter presenter;
     private MemoRealmRecyclerAdapter adapter;
 
@@ -46,12 +47,16 @@ public class MainActivity extends BaseActivity implements MainPresenterView,
     @Override
     protected void onCreate() {
         presenter = new MainPresenter(this, this);
-        adapter = new MemoRealmRecyclerAdapter(this, this, this,
-                presenter.loadMemos());
-        memoView.setAdapter(adapter);
-        memoAdd.setOnClickListener(this);
 
-        onChange();
+        RealmResults<Memo> memos = presenter.loadMemos();
+        if (memos.isLoaded()) {
+            adapter = new MemoRealmRecyclerAdapter(this, this, this, memos);
+
+            memoView.setAdapter(adapter);
+            memoAdd.setOnClickListener(this);
+
+            onChange();
+        }
     }
 
     @Override

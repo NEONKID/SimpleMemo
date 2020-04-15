@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+import io.realm.Realm;
 import xyz.neonkid.simplememoj.R;
 import xyz.neonkid.simplememoj.base.presenter.BasePresenter;
 import xyz.neonkid.simplememoj.main.adapter.model.Memo;
@@ -29,12 +30,13 @@ public class MemoPresenter extends BasePresenter<MemoPresenterView, MemoActivity
     }
 
     public void deleteMemo(int memoId) {
-        RealmHelper.getInstance().deleteMemoWithId(memoId);
+        Realm.Transaction.OnSuccess success = () -> getView().setToast(getContext().getString(R.string.memo_deleted_msg));
+        Realm.Transaction.OnError error = ex -> getView().setToast(ex.getMessage());
+
+        RealmHelper.getInstance().deleteMemoWithId(memoId, success, error);
 
         File memoRoot = new File(getContext().getFilesDir(), memoId + "/images");
         FileUtils.deleteDirectory(memoRoot);
-
-        getView().setToast(getContext().getString(R.string.memo_deleted_msg));
     }
 
     public String convertModTimeString(Date modified) {

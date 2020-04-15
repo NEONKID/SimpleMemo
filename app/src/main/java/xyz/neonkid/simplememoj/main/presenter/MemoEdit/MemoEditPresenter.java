@@ -5,6 +5,7 @@ import android.net.Uri;
 import java.io.File;
 import java.io.IOException;
 
+import io.realm.Realm;
 import io.realm.RealmResults;
 import xyz.neonkid.simplememoj.R;
 import xyz.neonkid.simplememoj.base.presenter.BasePresenter;
@@ -41,23 +42,27 @@ public class MemoEditPresenter extends BasePresenter<MemoEditPresenterView, Memo
         return RealmHelper.getInstance().getMemoWithId(id).first();
     }
 
-    public void insertMemo(int id, String title, String content, String color, MemoImage img, boolean notify) {
-        RealmHelper.getInstance().insertMemo(id, title, content, color, img);
-        if (notify)
-            getView().setToast(getContext().getString(R.string.memo_saved_msg));
+    public void insertMemo(int id, String title, String content, String color, MemoImage img) {
+        Realm.Transaction.OnSuccess success = () -> getView().setToast(getContext().getString(R.string.memo_saved_msg));
+        Realm.Transaction.OnError error = ex -> getView().setToast(ex.getMessage());
+
+        RealmHelper.getInstance().insertMemo(id, title, content, color, img, success, error);
     }
 
     public void deleteMemo(int memoId) {
-        RealmHelper.getInstance().deleteMemoWithId(memoId);
+        Realm.Transaction.OnSuccess success = () -> getView().setToast(getContext().getString(R.string.memo_deleted_msg));
+        Realm.Transaction.OnError error = ex -> getView().setToast(ex.getMessage());
+
+        RealmHelper.getInstance().deleteMemoWithId(memoId, success, error);
 
         File memoRoot = new File(getContext().getFilesDir(), memoId + "");
         FileUtils.deleteDirectory(memoRoot);
-
-        getView().setToast(getContext().getString(R.string.memo_deleted_msg));
     }
 
     public void deleteMemoImage(int id) {
-        RealmHelper.getInstance().deleteMemoImageWithMemoImageId(id);
-        getView().setToast(getContext().getString(R.string.memo_image_deleted_msg));
+        Realm.Transaction.OnSuccess success = () -> getView().setToast(getContext().getString(R.string.memo_image_deleted_msg));
+        Realm.Transaction.OnError error = ex -> getView().setToast(ex.getMessage());
+
+        RealmHelper.getInstance().deleteMemoImageWithMemoImageId(id, success, error);
     }
 }

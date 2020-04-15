@@ -24,13 +24,14 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.realm.RealmChangeListener;
+import io.realm.RealmResults;
 import xyz.neonkid.simplememoj.R;
 import xyz.neonkid.simplememoj.base.BaseActivity;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 import xyz.neonkid.simplememoj.main.adapter.MemoImageRealmRecyclerAdapter;
 import xyz.neonkid.simplememoj.main.adapter.model.Memo;
 import xyz.neonkid.simplememoj.main.adapter.model.MemoImage;
 import xyz.neonkid.simplememoj.main.component.anim.RevealAnimation;
-import xyz.neonkid.simplememoj.main.component.listener.OnListItemClickListener;
 import xyz.neonkid.simplememoj.main.presenter.MemoEdit.MemoEditPresenter;
 import xyz.neonkid.simplememoj.main.presenter.MemoEdit.view.MemoEditPresenterView;
 import xyz.neonkid.simplememoj.main.util.MemoCode;
@@ -107,7 +108,7 @@ public class MemoEditActivity extends BaseActivity implements MemoEditPresenterV
         autoSave = () -> {
             if (System.currentTimeMillis() > (last_edited_time + (autoSaveTime - 500))) {
                 presenter.insertMemo(memo.getId(), titleEdit.getText().toString(),
-                        contentEdit.getText().toString(), curColor, null, true);
+                        contentEdit.getText().toString(), curColor, null);
             }
             saved = true;
             asHandler.removeCallbacks(autoSave);
@@ -134,8 +135,7 @@ public class MemoEditActivity extends BaseActivity implements MemoEditPresenterV
         if (isAllempty())
             presenter.deleteMemo(memo.getId());
         else if (!saved)
-            presenter.insertMemo(memo.getId(), titleEdit.getText().toString(),
-                    contentEdit.getText().toString(), curColor, null, true);
+            presenter.insertMemo(memo.getId(), titleEdit.getText().toString(), contentEdit.getText().toString(), curColor, null);
     }
 
     @Override
@@ -175,8 +175,7 @@ public class MemoEditActivity extends BaseActivity implements MemoEditPresenterV
         switch (requestCode) {
             case MemoCode.MemoRequest.CAPTURE_IMAGE:
                 if (resultCode == Activity.RESULT_OK) {
-                    presenter.insertMemo(curId, title, content, curColor,
-                            new MemoImage(mImageUri), true);
+                    presenter.insertMemo(curId, title, content, curColor, new MemoImage(mImageUri));
                     saved = true;
                 }
                 break;
@@ -186,8 +185,7 @@ public class MemoEditActivity extends BaseActivity implements MemoEditPresenterV
                     if (data != null) {
                         try {
                             String path = presenter.getContentImageCopyPath(curId, data.getData());
-                            presenter.insertMemo(curId, title, content, curColor,
-                                    new MemoImage(path), true);
+                            presenter.insertMemo(curId, title, content, curColor, new MemoImage(path));
                             saved = true;
                         } catch (IOException ex) {
                             setToastMessage(ex.getMessage());
@@ -233,8 +231,11 @@ public class MemoEditActivity extends BaseActivity implements MemoEditPresenterV
             memo = presenter.getMemoWithId(curId);
         else {
             curColor = getString(R.color.colorPrimary);
-            presenter.insertMemo(curId, "", "", curColor, null, false);
-            memo = presenter.loadMemos().last();
+            presenter.insertMemo(curId, "", "", curColor, null);
+
+            RealmResults<Memo> memos = presenter.loadMemos();
+            if (memos.isLoaded())
+                memo = memos.last();
         }
 
         if (memo != null) {
@@ -344,7 +345,7 @@ public class MemoEditActivity extends BaseActivity implements MemoEditPresenterV
             return;
         }
 
-        presenter.insertMemo(curId, title, content, curColor, new MemoImage(url), true);
+        presenter.insertMemo(curId, title, content, curColor, new MemoImage(url));
     }
 
     /**

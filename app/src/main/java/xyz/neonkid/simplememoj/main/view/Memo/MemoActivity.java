@@ -16,13 +16,14 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import io.realm.RealmChangeListener;
+import io.realm.RealmResults;
 import xyz.neonkid.simplememoj.R;
 import xyz.neonkid.simplememoj.base.BaseActivity;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 import xyz.neonkid.simplememoj.main.adapter.MemoImageRealmRecyclerAdapter;
 import xyz.neonkid.simplememoj.main.adapter.model.Memo;
 import xyz.neonkid.simplememoj.main.adapter.model.MemoImage;
 import xyz.neonkid.simplememoj.main.component.dialog.AlertDialogFragment;
-import xyz.neonkid.simplememoj.main.component.listener.OnListItemClickListener;
 import xyz.neonkid.simplememoj.main.component.view.AutoSizeRecyclerView;
 import xyz.neonkid.simplememoj.main.presenter.Memo.MemoPresenter;
 import xyz.neonkid.simplememoj.main.presenter.Memo.view.MemoPresenterView;
@@ -76,11 +77,12 @@ public class MemoActivity extends BaseActivity implements MemoPresenterView,
         if (curId > 0)
             cur = presenter.getMemoWithId(curId);
 
-        if (cur != null) {
-            adapter = new MemoImageRealmRecyclerAdapter(this, this,
-                    cur.getImgsResult(), true);
-
-            cur.addChangeListener(this);
+        if (cur.isLoaded() && cur.isValid()) {
+            RealmResults<MemoImage> imgs = cur.getImgsResult();
+            if (imgs.isLoaded()) {
+                adapter = new MemoImageRealmRecyclerAdapter(this, this, imgs, true);
+                cur.addChangeListener(this);
+            }
         }
 
         renderMemo(cur);

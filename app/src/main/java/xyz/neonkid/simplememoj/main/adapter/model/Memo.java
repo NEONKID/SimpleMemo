@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import java.util.Date;
 import java.util.List;
 
+import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.RealmResults;
@@ -76,15 +77,15 @@ public class Memo extends RealmObject implements Parcelable {
         this.color = color;
     }
 
-    public void setTransactionImg(MemoImage mi) {
-        RealmHelper.getInstance().insertMemoImage(this, mi);
+    public void setTransactionImg(Realm realm, MemoImage mi) {
+        RealmHelper.getInstance().insertMemoImage(realm, this, mi);
     }
 
-    public void setTransactionImgs(List<MemoImage> imgs) {
+    public void setTransactionImgs(Realm realm, List<MemoImage> imgs) {
         this.imgs = new RealmList<>();
 
         for (MemoImage mi : imgs)
-            RealmHelper.getInstance().insertMemoImage(this, mi);
+            RealmHelper.getInstance().insertMemoImage(realm, this, mi);
     }
 
     public void setCreated(Date date) {

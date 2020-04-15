@@ -2,7 +2,7 @@ package xyz.neonkid.simplememoj.main.view.Memo;
 
 import xyz.neonkid.simplememoj.R;
 import xyz.neonkid.simplememoj.base.BaseImageActivity;
-import xyz.neonkid.simplememoj.main.component.listener.OnListItemClickListener;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 import xyz.neonkid.simplememoj.main.presenter.Memo.ImagePresenter;
 import xyz.neonkid.simplememoj.main.presenter.Memo.view.ImagePresenterView;
 

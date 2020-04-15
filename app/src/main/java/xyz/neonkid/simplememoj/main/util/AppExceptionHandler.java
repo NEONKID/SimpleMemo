@@ -13,7 +13,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import xyz.neonkid.simplememoj.main.view.Error.ErrorActivity;
-import xyz.neonkid.simplememoj.main.view.MainActivity;
 
 /**
  * Created by Neon K.I.D on 3/20/20
@@ -22,7 +21,6 @@ import xyz.neonkid.simplememoj.main.view.MainActivity;
  * Github : https://github.com/NEONKID
  */
 public class AppExceptionHandler implements Thread.UncaughtExceptionHandler, Application.ActivityLifecycleCallbacks {
-    private Application app;
     private Thread.UncaughtExceptionHandler defaultExceptionHandler;
     private Thread.UncaughtExceptionHandler fabricExceptionHandler;
 
@@ -34,11 +32,10 @@ public class AppExceptionHandler implements Thread.UncaughtExceptionHandler, App
             Application app,
             Thread.UncaughtExceptionHandler defaultExceptionHandler,
             Thread.UncaughtExceptionHandler fabricExceptionHandler) {
-        this.app = app;
         this.defaultExceptionHandler = defaultExceptionHandler;
         this.fabricExceptionHandler = fabricExceptionHandler;
 
-        this.app.registerActivityLifecycleCallbacks(this);
+        app.registerActivityLifecycleCallbacks(this);
     }
 
     @Override
