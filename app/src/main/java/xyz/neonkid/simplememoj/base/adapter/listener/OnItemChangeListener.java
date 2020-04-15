@@ -6,6 +6,6 @@ package xyz.neonkid.simplememoj.main.component.listener;
  * Blog : https://blog.neonkid.xyz
  * Github : https://github.com/NEONKID
  */
-public interface OnMemoChangeListener {
+public interface OnItemChangeListener {
     void onChange();
 }
