@@ -22,7 +22,6 @@ import xyz.neonkid.simplememoj.main.view.MainActivity;
  * Github : https://github.com/NEONKID
  */
 public class AppExceptionHandler implements Thread.UncaughtExceptionHandler, Application.ActivityLifecycleCallbacks {
-    private Application app;
     private Thread.UncaughtExceptionHandler defaultExceptionHandler;
     private Thread.UncaughtExceptionHandler fabricExceptionHandler;
 
@@ -34,11 +33,10 @@ public class AppExceptionHandler implements Thread.UncaughtExceptionHandler, App
             Application app,
             Thread.UncaughtExceptionHandler defaultExceptionHandler,
             Thread.UncaughtExceptionHandler fabricExceptionHandler) {
-        this.app = app;
         this.defaultExceptionHandler = defaultExceptionHandler;
         this.fabricExceptionHandler = fabricExceptionHandler;
 
-        this.app.registerActivityLifecycleCallbacks(this);
+        app.registerActivityLifecycleCallbacks(this);
     }
 
     @Override
