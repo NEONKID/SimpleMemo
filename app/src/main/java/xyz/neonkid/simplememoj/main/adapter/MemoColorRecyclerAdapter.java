@@ -6,11 +6,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import xyz.neonkid.simplememoj.base.adapter.BaseRecyclerAdapter;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 import xyz.neonkid.simplememoj.base.adapter.view.BaseRecyclerView;
 import xyz.neonkid.simplememoj.main.adapter.model.MemoColor;
 import xyz.neonkid.simplememoj.main.adapter.model.MemoColorModel;
 import xyz.neonkid.simplememoj.main.adapter.view.MemoColorRecyclerView;
-import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 
 /**
  * Created by Neon K.I.D on 2/20/20

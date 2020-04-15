@@ -13,9 +13,9 @@ import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.RealmRecyclerViewAdapter;
 import io.realm.RealmResults;
-import xyz.neonkid.simplememoj.base.adapter.view.BaseRealmRecyclerView;
 import xyz.neonkid.simplememoj.base.adapter.listener.OnItemChangeListener;
 import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
+import xyz.neonkid.simplememoj.base.adapter.view.BaseRealmRecyclerView;
 
 /**
  * Created by Neon K.I.D on 2/18/20

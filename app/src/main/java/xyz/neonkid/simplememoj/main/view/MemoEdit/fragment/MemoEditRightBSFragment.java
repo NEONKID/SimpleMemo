@@ -12,9 +12,9 @@ import butterknife.BindArray;
 import butterknife.BindView;
 import xyz.neonkid.simplememoj.R;
 import xyz.neonkid.simplememoj.base.BaseBottomSheetFragment;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 import xyz.neonkid.simplememoj.main.adapter.MemoColorRecyclerAdapter;
 import xyz.neonkid.simplememoj.main.adapter.model.MemoColor;
-import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 
 /**
  * Created by Neon K.I.D on 2/16/20

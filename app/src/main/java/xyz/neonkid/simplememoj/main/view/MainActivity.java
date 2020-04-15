@@ -1,7 +1,6 @@
 package xyz.neonkid.simplememoj.main.view;
 
 import android.content.Intent;
-import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,11 +13,11 @@ import butterknife.BindView;
 import io.realm.RealmResults;
 import xyz.neonkid.simplememoj.R;
 import xyz.neonkid.simplememoj.base.BaseActivity;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnItemChangeListener;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 import xyz.neonkid.simplememoj.main.adapter.MemoRealmRecyclerAdapter;
 import xyz.neonkid.simplememoj.main.adapter.model.Memo;
 import xyz.neonkid.simplememoj.main.component.anim.RevealAnimation;
-import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
-import xyz.neonkid.simplememoj.base.adapter.listener.OnItemChangeListener;
 import xyz.neonkid.simplememoj.main.presenter.MainPresenter;
 import xyz.neonkid.simplememoj.main.presenter.view.MainPresenterView;
 import xyz.neonkid.simplememoj.main.util.MemoCode;

@@ -13,7 +13,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import xyz.neonkid.simplememoj.main.view.Error.ErrorActivity;
-import xyz.neonkid.simplememoj.main.view.MainActivity;
 
 /**
  * Created by Neon K.I.D on 3/20/20

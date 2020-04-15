@@ -6,13 +6,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import io.realm.OrderedCollectionChangeSet;
 import io.realm.OrderedRealmCollection;
 import xyz.neonkid.simplememoj.base.adapter.BaseRealmRecyclerAdapter;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnItemChangeListener;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 import xyz.neonkid.simplememoj.main.adapter.model.Memo;
 import xyz.neonkid.simplememoj.main.adapter.view.MemoRealmRecyclerView;
-import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
-import xyz.neonkid.simplememoj.base.adapter.listener.OnItemChangeListener;
 
 /**
  * Created by Neon K.I.D on 2/18/20

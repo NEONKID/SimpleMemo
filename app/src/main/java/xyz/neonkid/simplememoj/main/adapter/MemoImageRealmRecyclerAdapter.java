@@ -8,10 +8,10 @@ import androidx.annotation.Nullable;
 
 import io.realm.OrderedRealmCollection;
 import xyz.neonkid.simplememoj.base.adapter.BaseRealmRecyclerAdapter;
+import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 import xyz.neonkid.simplememoj.main.adapter.model.MemoImage;
 import xyz.neonkid.simplememoj.main.adapter.model.MemoImageModel;
 import xyz.neonkid.simplememoj.main.adapter.view.MemoImageRealmRecyclerView;
-import xyz.neonkid.simplememoj.base.adapter.listener.OnListItemClickListener;
 
 /**
  * Created by Neon K.I.D on 2/19/20
